@@ -105,8 +105,10 @@
  * Use only one of Left/Right and Front/Behind. Others must be 0 (zero)
  * If you have a dual nozzle the offsets are calculated from the primary nozzle (the one plugged in to E0)
  */
+
+ // Folgende Konfig ist für ein Heizbett 220x280 berechnet. Absolute Mitte = 100x140. Mitte BLTouch x55 - 100 = -45 (ohne Vorzeichen)| y183 - 140 = 43 
 #define SENSOR_LEFT        0
-#define SENSOR_RIGHT       45
+#define SENSOR_RIGHT       45 
 #define SENSOR_FRONT       43
 #define SENSOR_BEHIND      0
 
@@ -114,7 +116,7 @@
  * Number of grid points in each direction
  * Minimum 3. Maximum 15 for UBL. Maximum 7 for MANUAL
  */
-#define GRID_POINTS        15
+#define GRID_POINTS        5
 
 /**
  * Margin around perimiter of bed for probing (will not probe outside this margin)

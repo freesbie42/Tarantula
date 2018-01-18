@@ -59,8 +59,8 @@
  * Offset from endpoints to get nozzle to 0,0 (front/left of bed)
  * (How to center prints: https://github.com/JimBrown/MarlinTarantula/wiki/How-to-center-your-prints-(EasyConfig))
  */
-#define NOZZLE_X          -2
-#define NOZZLE_Y          -4
+#define NOZZLE_X          0
+#define NOZZLE_Y          0
 
 /**
  * Minimal Z height (in mm) before homing (G28) for Z clearance above the bed, clamps, ...
@@ -105,23 +105,22 @@
  * Use only one of Left/Right and Front/Behind. Others must be 0 (zero)
  * If you have a dual nozzle the offsets are calculated from the primary nozzle (the one plugged in to E0)
  */
-
- // Folgende Konfig ist für ein Heizbett 220x280 berechnet. Absolute Mitte = 100x140. Mitte BLTouch x55 - 100 = -45 (ohne Vorzeichen)| y183 - 140 = 43 
-#define SENSOR_LEFT        0
-#define SENSOR_RIGHT       45 
-#define SENSOR_FRONT       43
+ 
+#define SENSOR_LEFT        32
+#define SENSOR_RIGHT       0 
+#define SENSOR_FRONT       8
 #define SENSOR_BEHIND      0
 
 /**
  * Number of grid points in each direction
  * Minimum 3. Maximum 15 for UBL. Maximum 7 for MANUAL
  */
-#define GRID_POINTS        5
+#define GRID_POINTS        4
 
 /**
  * Margin around perimiter of bed for probing (will not probe outside this margin)
  */
-#define BED_MARGIN         0
+#define BED_MARGIN         20
 
 /**
  * Servo probe deploy and stow angles
@@ -953,7 +952,7 @@
  */
 #define X_PROBE_OFFSET_FROM_EXTRUDER SENSOR_RIGHT - SENSOR_LEFT  // X offset: -left  +right  [of the nozzle]
 #define Y_PROBE_OFFSET_FROM_EXTRUDER SENSOR_BEHIND - SENSOR_FRONT // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER -0.50   // Z offset: -below +above  [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -1.00   // Z offset: -below +above  [the nozzle]
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 13500
@@ -1070,7 +1069,7 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 200
+#define X_BED_SIZE 220
 #if ENABLED(LARGE_BED)
   #define Y_BED_SIZE 280
 #else

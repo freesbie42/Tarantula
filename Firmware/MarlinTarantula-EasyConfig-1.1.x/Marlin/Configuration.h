@@ -79,6 +79,8 @@
  * If you install a lead screw with a different pitch and/or lead, change this
  */
 #define Z_STEPS      1600 // Stock lead screw
+#define X_STEPS      80.40 // 
+#define Y_STEPS      80.40 //
 
 /**
  * Z-Probe type (must be none or one of them)
@@ -115,7 +117,7 @@
  * Number of grid points in each direction
  * Minimum 3. Maximum 15 for UBL. Maximum 7 for MANUAL
  */
-#define GRID_POINTS        4
+#define GRID_POINTS        3
 
 /**
  * Margin around perimiter of bed for probing (will not probe outside this margin)
@@ -780,7 +782,7 @@
 #if ENABLED(DUAL_EXTRUDER)
   #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, Z_STEPS, E0_STEPS, E1_STEPS }
 #else
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, Z_STEPS, E0_STEPS }
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { X_STEPS, Y_STEPS, Z_STEPS, E0_STEPS }
 #endif
 
 /**
@@ -952,7 +954,7 @@
  */
 #define X_PROBE_OFFSET_FROM_EXTRUDER SENSOR_RIGHT - SENSOR_LEFT  // X offset: -left  +right  [of the nozzle]
 #define Y_PROBE_OFFSET_FROM_EXTRUDER SENSOR_BEHIND - SENSOR_FRONT // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER -1.00   // Z offset: -below +above  [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -1.10   // Z offset: -below +above  [the nozzle]
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 13500
@@ -1179,7 +1181,7 @@
  * Turn on with the command 'M111 S32'.
  * NOTE: Requires a lot of PROGMEM!
  */
-//#define DEBUG_LEVELING_FEATURE
+#define DEBUG_LEVELING_FEATURE
 
 #if XTRA_BED_BACK > SENSOR_BEHIND
   #define PROBE_Y_FRONT BED_MARGIN + SENSOR_BEHIND - (XTRA_BED_BACK - (XTRA_BED_BACK - SENSOR_BEHIND))
